@@ -1,25 +1,27 @@
 const fs = require("fs")
-const db = require("../knex")
+const db = require("../knex");
 
     (async () => {
         try {
-        const users = JSON.parse(fs.readFileSync("./product.json"))
+        const users = JSON.parse(fs.readFileSync("./database/seed/sample.json"))
             for (const user of users) {
-                const name = user.first_name
-                const surname = user.last_name
+                const first_name = user.first_name
+                const last_name = user.last_name
                 const email = user.email 
                 const username = user.username
                 const password = user.password
                 
-                const userstable = await db("users").insert({
-                    name,
-                    surname,
+                const usersTable = await db("users").insert({
+                    first_name,
+                    last_name,
                     email,
                     username,
                     password
+           
                 })
-        }
-    } catch (error) {
-        
+                console.log(usersTable)
+            }
+    } catch (err) {
+        console.error("Error inserting records", err);
     }
- })
+ })()
