@@ -2,15 +2,15 @@ const express = require("express");
 const path = require("path");
 const app = express();
 
-const api = require("./login");
+const users = require("./login");
 
 app.use(
-    "/api",
+    "/users",
     express.json(),
     express.urlencoded({
         extended: true,
     }),
-    api
+    users
 );
 
 app.use(express.static(path.join(__dirname, "../build")));
