@@ -7,8 +7,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import SearchJobs from './components/SearchJobs';
 import About from './components/About';
-import Job from './components/Job';
-import News from './components/News';
+
 
 
 function App() {
@@ -17,22 +16,37 @@ function App() {
 
   function stateDisplay() {
     if (numState === 0) {
-      return <Home />;
+
+      return <>
+        <Header onClick={(e) => setNumState(e)}/>
+        <Home />
+      </>;
     } else if (numState === 1) {
-      return <SearchJobs />
+      return <>
+        <Header onClick={(e) => setNumState(e)}/>
+        <SearchJobs />
+      </>
     } else if (numState === 2) {
-      return <About />
+      return <>
+        <Header onClick={(e) => setNumState(e)}/>
+        <About />
+      </>
+    } else if (numState === 3) {
+      return <>
+        login page
+        <button onClick={() => setNumState(0)}>login</button>
+      </>
     }
   }
 
   return (
     <div className="App">
 
-      <Header onClick={() => console.log('ehehhe')}/>
+      
 
       {stateDisplay()}
-        <Job />
-        <News />
+
+
 
     </div>
   );
