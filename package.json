@@ -23,7 +23,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "knex:make" : "knex migrate:make"
+    "knex:make" : "knex migrate:make",
+    "knex:migrate": "knex migrate:latest"
   },
   "eslintConfig": {
     "extends": "react-app"
