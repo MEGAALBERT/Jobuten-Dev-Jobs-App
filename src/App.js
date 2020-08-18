@@ -1,17 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 //components
-import TestComponents from './components/TestComponent'
+import Header from './components/Header';
+import Home from './components/Home';
+import SearchJobs from './components/SearchJobs';
+import About from './components/About';
 
 function App() {
+
+  const [numState, setNumState] = useState(0);
+
+  function stateDisplay() {
+    if (numState === 0) {
+      return <Home />;
+    } else if (numState === 1) {
+      return <SearchJobs />
+    } else if (numState === 2) {
+      return <About />
+    }
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <TestComponents />
-      </header>
+      <Header onClick={() => console.log('ehehhe')}/>
+
+      {stateDisplay()}
+
     </div>
   );
 }
