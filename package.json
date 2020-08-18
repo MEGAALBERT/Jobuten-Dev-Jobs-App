@@ -21,14 +21,14 @@
     "redux": "^4.0.5"
   },
   "scripts": {
+    "start-server": "node server/index.js",
+    "server": "nodemon server/index.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-
-    "knex:make" : "knex migrate:make",
+    "knex:make": "knex migrate:make",
     "knex:migrate": "knex migrate:latest"
-
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -47,5 +47,6 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
-  }
+  },
+  "proxy": "http://localhost:9000/"
 }
