@@ -4,7 +4,6 @@
   padding: 0;
 }
 .App {
-  
   text-align: center;
 }
 
@@ -13,17 +12,19 @@
 }
 
 .App-header {
-  background-color: #423a63;
-  height: 100px;
+  background-color: white;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: white;
+  color: grey;
   padding: 0 30px;
+  box-shadow: 0.6px 0.6px 6px 0.6px #d1dfde;
+  margin-bottom: 50px;
 }
 
 span {
-  color: aquamarine;
+  color: #FF4B2B;
 }
 
 
@@ -37,13 +38,28 @@ ul li {
 }
 
 li {
-  font-size: 20px;
-  font-weight: 500;
-  padding: 25px;
+  border: solid 4px white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 15px 25px;
   cursor: pointer;
 }
 
 li:hover {
-  color: #423a63;
-  background: azure;
+  color: #FF4B2B;
+  border-bottom: solid 4px #FF4B2B;
+}
+
+button {
+  color: white;
+  background: linear-gradient(90deg, rgba(224,19,92,1) 0%, rgba(255,75,43,1) 100%);;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+button:hover {
+  border: solid 1px #ff4b2b;
+  color: #ff4b2b;
+  background: white;
 }
