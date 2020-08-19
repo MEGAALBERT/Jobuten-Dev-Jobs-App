@@ -41,7 +41,7 @@ const mockJobs = [
         jobTitle: "Data Engineer",
         formattedLocationFull: "東京都 港区 赤坂",
         snippet: "だけ早く収集し、最適な形で提供すること」をシステムを通じて実現する。 また、SET（<b>Software</b> Engineer in Test）エンジニアとして、特に「自動テスト」を通じて... ",
-        url: "https://jp.indeed.com/viewjob?jk=3342579ab5021647&qd=v3NYM5
+        url: "https://jp.indeed.com/viewjob?jk=3342579ab5021647&qd=v3NYM5"
     },
     {
         company: "Google",
@@ -59,10 +59,10 @@ const mockJobs = [
         <div>
             <p>Working on jobs</p>
             <button onClick={()=> {
-                allJobs();
+                setJobs(mockJobs);
             }}>get jobs</button>
             {jobs.map(job => (
-                <p>{job.jobtitle}</p>
+                <p>{job.jobTitle}</p>
             ))}
         </div>
     )
