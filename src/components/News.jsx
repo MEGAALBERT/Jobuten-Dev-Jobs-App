@@ -12,6 +12,7 @@ function News() {
 const [intNews, setIntNews] = useState([]);
 const [japNews, setJapNews] = useState([]);
 const [newsView, setNewsView] = useState("");
+const [searchNew, setSearchNews] = useState("Software")
 
 
 const getIntNews=()=>{
@@ -27,7 +28,7 @@ const getIntNews=()=>{
         "page_size":"20",
         "media":"True",
         "lang":"en",
-        "q":"Software"
+        "q":searchNew,
         }
         })
         .then((response)=>{
@@ -52,7 +53,7 @@ const getJapNews=()=>{
         },"params":{
         "media":"True",
         "lang":"ja",
-        "q":"software"
+        "q":searchNew,
         }
         })
         .then((response)=>{
@@ -67,13 +68,15 @@ const getJapNews=()=>{
     return (
         <div>
             <div className="search-container">
-                <input type="text" className="search-bar" placeholder="Search News..."/>
+                <input type="text" className="search-bar" placeholder="Search News..." onChange={(e)=>{
+                    setSearchNews(e.target.value);
+                }}/>
                 <span className="btn-news-container">
                     <button className="btn-news" onClick={()=> {
                         getIntNews();
                         setNewsView("glob");
                     }}>Global News</button>
-                    <button className="btn-news btn-jp-news"onClick={()=> {
+                    <button className="btn-news btn-jp-news" onClick={()=> {
                         getJapNews();
                         setNewsView("jap");
                     }}>Japanese News</button>
