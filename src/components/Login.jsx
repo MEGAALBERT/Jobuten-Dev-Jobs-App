@@ -1,65 +1,36 @@
-import React, {useState} from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody } from 'mdbreact';
 
-const FormPage = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-  return (
-    <MDBContainer>
-      <MDBRow>
-        <MDBCol md="6">
-          <MDBCard>
-            <MDBCardBody>
-              <form>
-                <p className="h4 text-center py-4">Sign up</p>
-                <div className="grey-text">
-                  <MDBInput
-                    label="Your name"
-                    icon="user"
-                    group
-                    type="text"
-                    validate
-                    error="wrong"
-                    success="right"
-                  />
-                  <MDBInput
-                    label="Your email"
-                    icon="envelope"
-                    group
-                    type="email"
-                    validate
-                    error="wrong"
-                    success="right"
-                  />
-                  <MDBInput
-                    label="Confirm your email"
-                    icon="exclamation-triangle"
-                    group
-                    type="text"
-                    validate
-                    error="wrong"
-                    success="right"
-                  />
-                  <MDBInput
-                    label="Your password"
-                    icon="lock"
-                    group
-                    type="password"
-                    validate
-                  />
-                </div>
-                <div className="text-center py-4 mt-3">
-                  <MDBBtn color="cyan" type="submit">
-                    Register
-                  </MDBBtn>
-                </div>
-              </form>
-            </MDBCardBody>
-          </MDBCard>
-        </MDBCol>
-      </MDBRow>
-    </MDBContainer>
-  );
+
+
+import React from "react";
+import { MDBContainer, MDBRow, MDBCol, MDBBtn } from 'mdbreact';
+
+
+
+
+const Login = () => {
+return (
+<MDBContainer>
+  <MDBRow>
+    <MDBCol md="6">
+      <form>
+        <p className="h4 text-center mb-4">Sign in</p>
+        <label htmlFor="defaultFormLoginEmailEx" className="grey-text">
+          Your email
+        </label>
+        <input type="email" id="defaultFormLoginEmailEx" className="form-control" />
+        <br />
+        <label htmlFor="defaultFormLoginPasswordEx" className="grey-text">
+          Your password
+        </label>
+        <input type="password" id="defaultFormLoginPasswordEx" className="form-control" />
+        <div className="text-center mt-4">
+          <MDBBtn color="indigo" type="submit">Login</MDBBtn>
+        </div>
+      </form>
+    </MDBCol>
+  </MDBRow>
+</MDBContainer>
+);
 };
 
-export default FormPage;
+export default Login;

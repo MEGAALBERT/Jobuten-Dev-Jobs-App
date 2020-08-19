@@ -1,4 +1,5 @@
 import React from 'react';
+import pin from '../img/pin.svg'
 import "../NewsJobsStyle.css";
 
 function IntJobs({intJobs}) {
@@ -7,16 +8,15 @@ function IntJobs({intJobs}) {
 
 
     return (
-        <div>
+        <div className="job-card-container">
             {intJobs.map(job => (
-                <p>
-                    Title:<b>{job.jobtitle}</b><br />
-                    Company:<b>{job.company}</b><br />
-                    {job.snippet}<br />
-                    Location:<b>{job.formattedLocationFull}</b><br />
-                    Post Date:<b>{job.date}</b><br />
-                    <a href={job.url}>Link to Original Post</a>
-                </p>
+                <article>
+                    <h3>{job.jobtitle}  @<span>{job.company}</span></h3>
+                    <p>{job.snippet}</p>
+                    <p> <img src={pin} alt="pin" className="pin-img"/>{job.formattedLocationFull}</p>
+                    <button><a href={job.url}>View Job</a></button>
+                    <p>Posted on {job.date}</p>
+                </article>
             ))}
         </div>
     )
