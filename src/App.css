@@ -27,7 +27,6 @@
 a {
   text-decoration: none;
   color: white;
-  target-new: tab;
 }
 
 
@@ -124,28 +123,80 @@ button.btn-news:hover {
   background: white;
 }
 
+.news-card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
 .news-card {
   background: white;
   border-radius: 10px;
   box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.3);
-  width: 500px;
+  width: 1100px;
   margin: 20px;
 }
 
+img {
+  max-width: 300px;
+  max-height: 150px;
+  width: auto;
+  height: auto;
+}
+
 .news-card article {
-  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 35px;
+}
+h3 {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.text-container p {
+  font-size: 14px;
+  text-align: justify;
+}
+
+div.img-container {
+  width: 30%;
+}
+
+.text-container {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
 button.card-news-btn {
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  width: 500px;
+  border-radius: 30px;
+  margin-top: 20px;
 }
 
 button.card-news-btn:hover a {
   
   background: white;
   color: #ff4b2b;
+}
+
+.job-card-container article {
+  margin: 20px;
+  padding: 30px 35px;
+  width: 800px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.3);
+  background: white;
+  line-height: 30px;
+}
+
+img.pin-img {
+  width: 20px;
+  margin-right: 10px;
 }
