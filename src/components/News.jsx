@@ -52,7 +52,7 @@ const getNews=()=>{
                     <p> {elem.summary} </p>
 
                     </article>
-                    <button className="card-news-btn"><a href={elem.link}>Read more</a></button>
+                    <button className="card-news-btn"><a href={elem.link} target="_blank">Read more</a></button>
                 </div>
             ))}
 
