@@ -1,19 +1,27 @@
+
 import React, { useState } from 'react';
 import axios from "axios";
+import IntNews from "./IntNews";
+import JapNews from "./JapNews";
 import "../NewsJobsStyle.css";
+
+require('dotenv').config();
 
 function News() {
 
-const [news, setNews] = useState([]);
+const [intNews, setIntNews] = useState([]);
+const [japNews, setJapNews] = useState([]);
+const [newsView, setNewsView] = useState("");
 
-const getNews=()=>{
+
+const getIntNews=()=>{
     axios({
         "method":"GET",
         "url":"https://newscatcher.p.rapidapi.com/v1/search_free",
         "headers":{
         "content-type":"application/octet-stream",
         "x-rapidapi-host":"newscatcher.p.rapidapi.com",
-        "x-rapidapi-key":"621e221175msh97322307cb5c700p1b4775jsnc690eac8a2ee",
+        "x-rapidapi-key":process.env.REACT_APP_API_KEY,
         "useQueryString":true
         },"params":{
         "page_size":"20",
@@ -24,13 +32,37 @@ const getNews=()=>{
         })
         .then((response)=>{
             console.log(response.data.articles);
-          setNews(response.data.articles)
-          console.log(news)
+          setIntNews(response.data.articles)
+          console.log(intNews)
         })
         .catch((error)=>{
           console.log(error)
         })
 }
+
+const getJapNews=()=>{
+    axios({
+        "method":"GET",
+        "url":"https://newscatcher.p.rapidapi.com/v1/search_free",
+        "headers":{
+        "content-type":"application/octet-stream",
+        "x-rapidapi-host":"newscatcher.p.rapidapi.com",
+        "x-rapidapi-key":process.env.REACT_APP_API_KEY,
+        "useQueryString":true
+        },"params":{
+        "media":"True",
+        "lang":"ja",
+        "q":"software"
+        }
+        })
+        .then((response)=>{
+          console.log(response.data.articles);
+          setJapNews(response.data.articles)
+        })
+        .catch((error)=>{
+          console.log(error)
+        })
+    }
 
     return (
         <div>
@@ -38,23 +70,21 @@ const getNews=()=>{
                 <input type="text" className="search-bar" placeholder="Search News..."/>
                 <span className="btn-news-container">
                     <button className="btn-news" onClick={()=> {
-                        getNews();
+                        getIntNews();
+                        setNewsView("glob");
                     }}>Global News</button>
-                    <button className="btn-news btn-jp-news">Japanese News</button>
+                    <button className="btn-news btn-jp-news"onClick={()=> {
+                        getJapNews();
+                        setNewsView("jap");
+                    }}>Japanese News</button>
                 </span>
             </div>
 
-            {news.map(elem=> (
-                <div className="news-card">
-                    <article>
-                    <h3>{elem.title}</h3>
-                    <img src={elem.media} alt="mediaImage" width="250px" height="150"></img>
-                    <p> {elem.summary} </p>
-
-                    </article>
-                    <button className="card-news-btn"><a href={elem.link} target="_blank">Read more</a></button>
-                </div>
-            ))}
+                    {newsView==="glob"?
+                    <IntNews intNews={intNews}/>
+                    :
+                    <JapNews japNews={japNews}/>
+                    }
 
         </div>
     )

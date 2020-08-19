@@ -3,7 +3,7 @@ import axios from "axios";
 import IntJobs from "./IntJobs";
 import JapJobs from "./JapJobs";
 import "../NewsJobsStyle.css";
-
+require('dotenv').config();
 function Job() {
 
 const [japJobs, setJapJobs] = useState([]);
@@ -17,7 +17,7 @@ const [viewJobs, setView] = useState("")
 //     "headers":{
 //     "content-type":"application/octet-stream",
 //     "x-rapidapi-host":"indeed-com.p.rapidapi.com",
-//     "x-rapidapi-key":"621e221175msh97322307cb5c700p1b4775jsnc690eac8a2ee",
+//     "x-rapidapi-key":process.env.REACT_APP_API_KEY,
 //     "useQueryString":true
 //     },"params":{
 //     "sort":"relevance",
@@ -45,7 +45,7 @@ const [viewJobs, setView] = useState("")
 //         "headers":{
 //         "content-type":"application/octet-stream",
 //         "x-rapidapi-host":"indeed-com.p.rapidapi.com",
-//         "x-rapidapi-key":"621e221175msh97322307cb5c700p1b4775jsnc690eac8a2ee",
+//         "x-rapidapi-key":process.env.REACT_APP_API_KEY,
 //         "useQueryString":true
 //         },"params":{
 //         "sort":"relevance",
