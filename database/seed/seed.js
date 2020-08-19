@@ -10,7 +10,7 @@ const db = require("../knex");
                 const email = user.email 
                 const username = user.username
                 const password = user.password
-                
+                const token= user.token
                 const usersTable = await db("users").insert({
                     first_name,
                     last_name,
@@ -19,7 +19,11 @@ const db = require("../knex");
                     password
            
                 })
-                console.log(usersTable)
+                const tokenTable=await db("auth_token").insert({
+                  token
+           
+                })
+
             }
     } catch (err) {
         console.error("Error inserting records", err);
