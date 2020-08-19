@@ -9,17 +9,15 @@ const Signup = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-  function addUser() {
+  async function addUser(e) {
     const user = {
       username: username,
       email: email,
-      passowrd: password,
+      password: password,
     };
-    axios.post("/", {
-      username,
-      email,
-      password,
-    });
+    console.log("!!!!", user);
+    await axios.post("/users", user);
+    e.preventDefault();
   }
 
   return (
@@ -35,6 +33,7 @@ const Signup = () => {
               type="text"
               id="defaultFormRegisterNameEx"
               className="form-control"
+              onChange={(e) => setUsername(e.target.value)}
             />
             <br />
             <label htmlFor="defaultFormRegisterEmailEx" className="grey-text">
@@ -44,6 +43,9 @@ const Signup = () => {
               type="email"
               id="defaultFormRegisterEmailEx"
               className="form-control"
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
             />
             <br />
             <label htmlFor="defaultFormRegisterConfirmEx" className="grey-text">
@@ -65,9 +67,15 @@ const Signup = () => {
               type="password"
               id="defaultFormRegisterPasswordEx"
               className="form-control"
+              onChange={(e) => setPassword(e.target.value)}
             />
             <div className="text-center mt-4">
-              <MDBBtn color="unique" type="submit">
+              <MDBBtn
+                color="unique"
+                type="submit"
+                value="POST"
+                onClick={addUser}
+              >
                 Register
               </MDBBtn>
             </div>
