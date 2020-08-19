@@ -15,7 +15,7 @@ export default function About() {
   <h2>OUR MISSION</h2>
   <p>To provide for our clients and users the best option for finding the best dev jobs in Japan<br/>
       and around the world!<br/>
-      As well as keep out clients informed of the latest technologies news around the world!.</p>
+      As well as to keep our clients up to date with the latest news about tech and the world !.</p>
 </div>
 
 <h2 >Our Team</h2>
@@ -27,7 +27,7 @@ export default function About() {
       <img src={eri} alt="Jane" className="about-img"/>
       <div className="container">
         <h2>Eri Shimada</h2>
-        <p className="title">FrontEnd Design</p>
+        <p className="title">FrontEnd Developer</p>
         <p>Student at Code Chrysalis CC13.</p>
         <p>https://github.com/Erismd</p>
         <p><button className="button">Contact</button></p>
@@ -57,7 +57,7 @@ export default function About() {
     <div className="card">
       <img src={mat} alt="Mike" className="about-img"/>
       <div className="container">
-        <h2>Mattia</h2>
+        <h2>Mattia Marcenta</h2>
         <p className="title">BackEnd Developer</p>
         <p>Student at Code Chrysalis CC13.</p>
         <p>https://github.com/matt185</p>
