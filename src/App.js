@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
+import Signup from "./components/Signup"
+import Login from "./components/Login"
 
 //components
 
@@ -41,13 +43,8 @@ function App() {
 
   return (
     <div className="App">
-
-      
-
+     
       {stateDisplay()}
-
-
-
     </div>
   );
 }
