@@ -2,16 +2,20 @@ import React from 'react'
 
 function IntNews({intNews}) {
     return (
-        <div>
+        <div className="news-card-container">
         {intNews.map(elem=> (
                 <div className="news-card">
                     <article>
-                    <h3>{elem.title}</h3>
-                    <img src={elem.media} alt="mediaImage" width="250px" height="150"></img>
-                    <p> {elem.summary} </p>
+                        <div className="img-container">
+                            <img src={elem.media} alt="mediaImage"></img>
+                        </div>
+                        <div className="text-container">
+                            <h3>{elem.title}</h3>
+                            <p> {elem.summary} </p>
+                            <button className="card-news-btn"><a href={elem.link} target="_blank">View Article</a></button>
+                        </div>
 
                     </article>
-                    <button className="card-news-btn"><a href={elem.link}>Read more</a></button>
                 </div>
             ))}
         </div>

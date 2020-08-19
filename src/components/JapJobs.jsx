@@ -5,7 +5,7 @@ import "../NewsJobsStyle.css";
 
 function JapJobs({japJobs}) {
     return (
-        <div>
+        <div >
             {japJobs.map(job => (
                 <p>
                     Title:<b>{job.jobtitle}</b><br />
