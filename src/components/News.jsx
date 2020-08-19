@@ -79,11 +79,13 @@ const getJapNews=()=>{
                     }}>Japanese News</button>
                 </span>
             </div>
+
                     {newsView==="glob"?
                     <IntNews intNews={intNews}/>
                     :
                     <JapNews japNews={japNews}/>
                     }
+
         </div>
     )
 }
