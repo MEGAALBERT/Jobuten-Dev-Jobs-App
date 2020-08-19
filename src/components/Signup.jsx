@@ -1,63 +1,89 @@
-import React from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody } from 'mdbreact';
+import React, { useState } from "react";
+import { MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
+import axios from "axios";
 
-const FormPage = () => {
+const Signup = () => {
+  const [fields, handleFieldChange] = useState();
+  const [newUser, setNewUser] = useState(null);
+  const [username, setUsername] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+
+  async function addUser(e) {
+    const user = {
+      username: username,
+      email: email,
+      password: password,
+    };
+    console.log("!!!!", user);
+    await axios.post("/users", user);
+    e.preventDefault();
+  }
+
   return (
     <MDBContainer>
       <MDBRow>
         <MDBCol md="6">
-          <MDBCard>
-            <MDBCardBody>
-              <form>
-                <p className="h4 text-center py-4">Sign up</p>
-                <div className="grey-text">
-                  <MDBInput
-                    label="Your name"
-                    icon="user"
-                    group
-                    type="text"
-                    validate
-                    error="wrong"
-                    success="right"
-                  />
-                  <MDBInput
-                    label="Your email"
-                    icon="envelope"
-                    group
-                    type="email"
-                    validate
-                    error="wrong"
-                    success="right"
-                  />
-                  <MDBInput
-                    label="Confirm your email"
-                    icon="exclamation-triangle"
-                    group
-                    type="text"
-                    validate
-                    error="wrong"
-                    success="right"
-                  />
-                  <MDBInput
-                    label="Your password"
-                    icon="lock"
-                    group
-                    type="password"
-                    validate
-                  />
-                </div>
-                <div className="text-center py-4 mt-3">
-                  <MDBBtn color="cyan" type="submit">
-                    Register
-                  </MDBBtn>
-                </div>
-              </form>
-            </MDBCardBody>
-          </MDBCard>
+          <form>
+            <p className="h4 text-center mb-4">Sign up</p>
+            <label htmlFor="defaultFormRegisterNameEx" className="grey-text">
+              Your username
+            </label>
+            <input
+              type="text"
+              id="defaultFormRegisterNameEx"
+              className="form-control"
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <br />
+            <label htmlFor="defaultFormRegisterEmailEx" className="grey-text">
+              Your email
+            </label>
+            <input
+              type="email"
+              id="defaultFormRegisterEmailEx"
+              className="form-control"
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
+            <br />
+            <label htmlFor="defaultFormRegisterConfirmEx" className="grey-text">
+              Confirm your email
+            </label>
+            <input
+              type="email"
+              id="defaultFormRegisterConfirmEx"
+              className="form-control"
+            />
+            <br />
+            <label
+              htmlFor="defaultFormRegisterPasswordEx"
+              className="grey-text"
+            >
+              Your password
+            </label>
+            <input
+              type="password"
+              id="defaultFormRegisterPasswordEx"
+              className="form-control"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <div className="text-center mt-4">
+              <MDBBtn
+                color="unique"
+                type="submit"
+                value="POST"
+                onClick={addUser}
+              >
+                Register
+              </MDBBtn>
+            </div>
+          </form>
         </MDBCol>
       </MDBRow>
     </MDBContainer>
   );
 };
 
-export default FormPage;
+export default Signup;
