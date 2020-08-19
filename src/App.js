@@ -3,6 +3,7 @@ import './App.css';
 import Signup from "./components/Signup"
 import Login from "./components/Login"
 
+
 //components
 
 import Header from './components/Header';
@@ -37,6 +38,16 @@ function App() {
       return <>
         login page
         <button onClick={() => setNumState(0)}>login</button>
+      </>
+    }else if (numState === 4) {
+      return <>
+        <Header onClick={(e) => setNumState(e)}/>
+        <Signup /> 
+      </>
+    }else if (numState === 5) {
+      return <>
+        <Header onClick={(e) => setNumState(e)}/>
+        <Login />
       </>
     }
   }
