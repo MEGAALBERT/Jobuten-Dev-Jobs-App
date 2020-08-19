@@ -64,47 +64,7 @@ async function getIntJobs(){
 }
 
 
-const mockIntJobs= [
-    {
-        company: "エムスリー株式会社",
-        date: "Tue, 23 Jul 2019 19:44:18 GMT",
-        expired: false,
-        jobtitle: "SUPER Data Engineer",
-        formattedLocationFull: "東京都 港区 赤坂",
-        snippet: "だけ早く収集し、最適な形で提供すること」をシステムを通じて実現する。 また、SET（<b>Software</b> Engineer in Test）エンジニアとして、特に「自動テスト」を通じて... ",
-        url: "https://jp.indeed.com/viewjob?jk=3342579ab5021647&qd=v3NYM5"
-    },
-    {
-        company: "Google",
-        date: "Mon, 17 Aug 2020 19:44:18 GMT",
-        expired: false,
-        jobtitle: "SUPER JR. Software Dev",
-        formattedLocationFull: "San Francisco, Monarch St 2340",
-        snippet: "Looking for new software engineer with no experience required, knows React and FrontEnd",
-        url: "https://www.indeed.com"
-    },
-]
 
-const mockJapJobs = [
-    {
-        company: "エムスリー株式会社",
-        date: "Tue, 23 Jul 2019 19:44:18 GMT",
-        expired: false,
-        jobtitle: "Data Engineer",
-        formattedLocationFull: "東京都 港区 赤坂",
-        snippet: "だけ早く収集し、最適な形で提供すること」をシステムを通じて実現する。 また、SET（<b>Software</b> Engineer in Test）エンジニアとして、特に「自動テスト」を通じて... ",
-        url: "https://jp.indeed.com/viewjob?jk=3342579ab5021647&qd=v3NYM5"
-    },
-    {
-        company: "Google",
-        date: "Mon, 17 Aug 2020 19:44:18 GMT",
-        expired: false,
-        jobtitle: "JR. Software Dev",
-        formattedLocationFull: "San Francisco, Monarch St 2340",
-        snippet: "Looking for new software engineer with no experience required, knows React and FrontEnd",
-        url: "https://www.indeed.com"
-    },
-]
     return (
         <div>
             <input type="text" className="search-bar" placeholder="Search News..." onChange={(e)=>{
@@ -112,13 +72,11 @@ const mockJapJobs = [
                 }}/>
             <span className="btn-news-container">
             <button className="btn-news" onClick={()=> {
-                //getIntJobs();
-                setintJobs(mockIntJobs);
+                getIntJobs();
                 setView("int");
             }}>International Jobs</button>
             <button className="btn-news btn-jp-news" onClick={()=> {
-                //getJapJobs();
-                setJapJobs(mockJapJobs);
+                getJapJobs();
                 setView("jap")
             }}>Tokyo Jobs</button>
             {viewJobs==="int"?
