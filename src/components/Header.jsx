@@ -12,7 +12,10 @@ export default function Header(props) {
                 <li onClick={() => props.onClick(1)}>Search Jobs</li>
                 <li onClick={() => props.onClick(2)}>About</li>
             </ul>
-            <button onClick={() => props.onClick(3)}>Log out</button>
+            <div>
+                <button className="signin-btn">Sign In</button>
+                <button className="signup-btn">Sign Up</button>
+            </div>
         </div>
     )
 }

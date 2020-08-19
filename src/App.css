@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
 }
+
 .App {
   text-align: center;
 }
@@ -22,6 +23,13 @@
   box-shadow: 0.6px 0.6px 6px 0.6px #d1dfde;
   margin-bottom: 50px;
 }
+
+a {
+  text-decoration: none;
+  color: white;
+  target-new: tab;
+}
+
 
 span {
   color: #FF4B2B;
@@ -72,12 +80,30 @@ button {
   background: linear-gradient(90deg, rgba(224,19,92,1) 0%, rgba(255,75,43,1) 100%);
   padding: 10px 20px;
   outline: none;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 30px;
   cursor: pointer;
+  
+}
+
+
+button.signin-btn {
+  background: #ff4b2b;
+  border-radius: 0px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  
+}
+
+button.signup-btn {
+  background: #ff4b2b;
+  border-radius: 0px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
 
 button:hover {
+  box-sizing: border-box;
   border: solid 1px #ff4b2b;
   color: #ff4b2b;
   background: white;
@@ -106,10 +132,20 @@ button.btn-news:hover {
   margin: 20px;
 }
 
+.news-card article {
+  padding: 30px;
+}
+
 button.card-news-btn {
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   width: 500px;
+}
+
+button.card-news-btn:hover a {
+  
+  background: white;
+  color: #ff4b2b;
 }
