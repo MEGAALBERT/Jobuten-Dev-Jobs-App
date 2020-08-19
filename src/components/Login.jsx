@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody } from 'mdbreact';
 
 const FormPage = () => {

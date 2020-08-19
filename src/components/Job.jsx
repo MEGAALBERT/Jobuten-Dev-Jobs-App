@@ -7,60 +7,61 @@ require('dotenv').config();
 function Job() {
 
 const [japJobs, setJapJobs] = useState([]);
-const [intJobs, setintJobs] = useState([])
-const [viewJobs, setView] = useState("")
+const [intJobs, setintJobs] = useState([]);
+const [viewJobs, setView] = useState("");
+const [jobParam, setJobParam] = useState("Software");
 
-// const getJapJobs = () => {
-//     axios({
-//     "method":"GET",
-//     "url":"https://indeed-com.p.rapidapi.com/search/jobs",
-//     "headers":{
-//     "content-type":"application/octet-stream",
-//     "x-rapidapi-host":"indeed-com.p.rapidapi.com",
-//     "x-rapidapi-key":process.env.REACT_APP_API_KEY,
-//     "useQueryString":true
-//     },"params":{
-//     "sort":"relevance",
-//     "location":"Tokyo",
-//     "offset":"0",
-//     "query":"Software",
-//     "country":"jp",
-//     "radius":"25"
-//     }
-//     })
-//     .then((response)=>{
-//       setJapJobs(response.data.results);
-//       console.log(japJobs);
-//     })
-//     .catch((error)=>{
-//       console.log(error)
-//     })
-// }
+const getJapJobs = () => {
+    axios({
+    "method":"GET",
+    "url":"https://indeed-com.p.rapidapi.com/search/jobs",
+    "headers":{
+    "content-type":"application/octet-stream",
+    "x-rapidapi-host":"indeed-com.p.rapidapi.com",
+    "x-rapidapi-key":process.env.REACT_APP_API_KEY,
+    "useQueryString":true
+    },"params":{
+    "sort":"relevance",
+    "location":"Tokyo",
+    "offset":"0",
+    "query":jobParam,
+    "country":"jp",
+    "radius":"25"
+    }
+    })
+    .then((response)=>{
+      setJapJobs(response.data.results);
+      console.log(japJobs);
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
+}
 
 
-// async function getIntJobs(){
-//     axios({
-//         "method":"GET",
-//         "url":"https://indeed-com.p.rapidapi.com/search/jobs",
-//         "headers":{
-//         "content-type":"application/octet-stream",
-//         "x-rapidapi-host":"indeed-com.p.rapidapi.com",
-//         "x-rapidapi-key":process.env.REACT_APP_API_KEY,
-//         "useQueryString":true
-//         },"params":{
-//         "sort":"relevance",
-//         "offset":"0",
-//         "query":"Software Developer Engineer"
-//         }
-//         })
-//         .then((response)=>{
-//           console.log(response.data.results);
-//           setintJobs(response.data.results);
-//         })
-//         .catch((error)=>{
-//           console.log(error)
-//         })
-// }
+async function getIntJobs(){
+    axios({
+        "method":"GET",
+        "url":"https://indeed-com.p.rapidapi.com/search/jobs",
+        "headers":{
+        "content-type":"application/octet-stream",
+        "x-rapidapi-host":"indeed-com.p.rapidapi.com",
+        "x-rapidapi-key":process.env.REACT_APP_API_KEY,
+        "useQueryString":true
+        },"params":{
+        "sort":"relevance",
+        "offset":"0",
+        "query":jobParam,
+        }
+        })
+        .then((response)=>{
+          console.log(response.data.results);
+          setintJobs(response.data.results);
+        })
+        .catch((error)=>{
+          console.log(error)
+        })
+}
 
 
 const mockIntJobs= [
@@ -106,20 +107,23 @@ const mockJapJobs = [
 ]
     return (
         <div>
+            <input type="text" className="search-bar" placeholder="Search News..." onChange={(e)=>{
+                    setJobParam(e.target.value);
+                }}/>
             <button onClick={()=> {
 
-                //getIntJobs();
-                setintJobs(mockIntJobs);
+                getIntJobs();
+                //setintJobs(mockIntJobs);
                 setView("int");
             }}>International Jobs</button>
             <button onClick={()=> {
-                //getJapJobs();
-                setJapJobs(mockJapJobs);
+                getJapJobs();
+                //setJapJobs(mockJapJobs);
                 setView("jap")
             }}>Tokyo Jobs</button>
             {viewJobs==="int"?
-            <JapJobs japJobs={japJobs}/>:
-            <IntJobs intJobs={intJobs}/>
+            <IntJobs intJobs={intJobs}/>:
+            <JapJobs japJobs={japJobs}/>
             } 
 
         </div>
