@@ -1,11 +1,16 @@
+
 import React, { useState } from 'react';
 import axios from "axios";
 import "../NewsJobsStyle.css";
+
+require('dotenv').config();
 
 function News() {
 
 const [intNews, setIntNews] = useState([]);
 const [japNews, setJapNews] = useState([]);
+
+
 
 const getIntNews=()=>{
     axios({
@@ -14,7 +19,7 @@ const getIntNews=()=>{
         "headers":{
         "content-type":"application/octet-stream",
         "x-rapidapi-host":"newscatcher.p.rapidapi.com",
-        "x-rapidapi-key":"621e221175msh97322307cb5c700p1b4775jsnc690eac8a2ee",
+        "x-rapidapi-key":process.env.REACT_APP_API_KEY,
         "useQueryString":true
         },"params":{
         "page_size":"20",
@@ -40,7 +45,7 @@ const getJapNews=()=>{
         "headers":{
         "content-type":"application/octet-stream",
         "x-rapidapi-host":"newscatcher.p.rapidapi.com",
-        "x-rapidapi-key":"621e221175msh97322307cb5c700p1b4775jsnc690eac8a2ee",
+        "x-rapidapi-key":process.env.REACT_APP_API_KEY,
         "useQueryString":true
         },"params":{
         "media":"True",
