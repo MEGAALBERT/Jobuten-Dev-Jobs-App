@@ -76,7 +76,7 @@ const getJapNews=()=>{
                         getIntNews();
                         setNewsView("glob");
                     }}>Global News</button>
-                    <button className="btn-news btn-jp-news"onClick={()=> {
+                    <button className="btn-news btn-jp-news" onClick={()=> {
                         getJapNews();
                         setNewsView("jap");
                     }}>Japanese News</button>

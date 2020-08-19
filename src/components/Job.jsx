@@ -110,22 +110,22 @@ const mockJapJobs = [
             <input type="text" className="search-bar" placeholder="Search News..." onChange={(e)=>{
                     setJobParam(e.target.value);
                 }}/>
-            <button onClick={()=> {
-
-                getIntJobs();
-                //setintJobs(mockIntJobs);
+            <span className="btn-news-container">
+            <button className="btn-news" onClick={()=> {
+                //getIntJobs();
+                setintJobs(mockIntJobs);
                 setView("int");
             }}>International Jobs</button>
-            <button onClick={()=> {
-                getJapJobs();
-                //setJapJobs(mockJapJobs);
+            <button className="btn-news btn-jp-news" onClick={()=> {
+                //getJapJobs();
+                setJapJobs(mockJapJobs);
                 setView("jap")
             }}>Tokyo Jobs</button>
             {viewJobs==="int"?
             <IntJobs intJobs={intJobs}/>:
             <JapJobs japJobs={japJobs}/>
             } 
-
+            </span>
         </div>
     )
 }
