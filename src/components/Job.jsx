@@ -107,6 +107,7 @@ const mockJapJobs = [
     return (
         <div>
             <button onClick={()=> {
+
                 //getIntJobs();
                 setintJobs(mockIntJobs);
                 setView("int");
@@ -120,6 +121,7 @@ const mockJapJobs = [
             <JapJobs japJobs={japJobs}/>:
             <IntJobs intJobs={intJobs}/>
             } 
+
         </div>
     )
 }

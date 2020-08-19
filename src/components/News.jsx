@@ -34,19 +34,28 @@ const getNews=()=>{
 
     return (
         <div>
-            <p>Now the news</p>
-            <button onClick={()=> {
-                getNews();
-            }}>get news</button>
+            <div className="search-container">
+                <input type="text" className="search-bar" placeholder="Search News..."/>
+                <span className="btn-news-container">
+                    <button className="btn-news" onClick={()=> {
+                        getNews();
+                    }}>Global News</button>
+                    <button className="btn-news btn-jp-news">Japanese News</button>
+                </span>
+            </div>
+
             {news.map(elem=> (
-                <p>
-                    <b>{elem.title}</b><br/>
+                <div className="news-card">
+                    <article>
+                    <h3>{elem.title}</h3>
                     <img src={elem.media} alt="mediaImage" width="250px" height="150"></img>
-                    <span> {elem.summary} </span><br/>
-                    <b><a href={elem.link}>Link To Source</a></b><br/>
-                </p>
+                    <p> {elem.summary} </p>
+
+                    </article>
+                    <button className="card-news-btn"><a href={elem.link}>Read more</a></button>
+                </div>
             ))}
-            <br />
+
         </div>
     )
 }
