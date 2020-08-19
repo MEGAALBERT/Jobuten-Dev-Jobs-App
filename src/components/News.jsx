@@ -46,10 +46,13 @@ const getNews=()=>{
 
             {news.map(elem=> (
                 <div className="news-card">
-                    <b>{elem.title}</b><br/>
+                    <article>
+                    <h3>{elem.title}</h3>
                     <img src={elem.media} alt="mediaImage" width="250px" height="150"></img>
-                    <span> {elem.summary} </span><br/>
-                    <b><a href={elem.link}>Read more</a></b><br/>
+                    <p> {elem.summary} </p>
+
+                    </article>
+                    <button className="card-news-btn"><a href={elem.link}>Read more</a></button>
                 </div>
             ))}
 

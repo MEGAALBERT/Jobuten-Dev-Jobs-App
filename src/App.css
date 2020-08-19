@@ -103,6 +103,13 @@ button.btn-news:hover {
   border-radius: 10px;
   box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.3);
   width: 500px;
-  padding: 20px;
   margin: 20px;
+}
+
+button.card-news-btn {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 500px;
 }
