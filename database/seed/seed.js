@@ -10,15 +10,16 @@ const db = require("../knex");
                 const email = user.email 
                 const username = user.username
                 const password = user.password
-                const token= user.token
+                const token = user.token
+                //create seed table user
                 const usersTable = await db("users").insert({
-                    first_name,
-                    last_name,
+                  
                     email,
                     username,
                     password
            
                 })
+                //create seed table "auth_token"
                 const tokenTable=await db("auth_token").insert({
                   token
            
