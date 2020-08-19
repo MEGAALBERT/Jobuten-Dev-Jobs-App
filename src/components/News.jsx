@@ -1,6 +1,8 @@
 
 import React, { useState } from 'react';
 import axios from "axios";
+import IntNews from "./IntNews";
+import JapNews from "./JapNews";
 import "../NewsJobsStyle.css";
 
 require('dotenv').config();
@@ -9,7 +11,7 @@ function News() {
 
 const [intNews, setIntNews] = useState([]);
 const [japNews, setJapNews] = useState([]);
-
+const [newsView, setNewsView] = useState("");
 
 
 const getIntNews=()=>{
@@ -69,36 +71,19 @@ const getJapNews=()=>{
                 <span className="btn-news-container">
                     <button className="btn-news" onClick={()=> {
                         getIntNews();
+                        setNewsView("glob");
                     }}>Global News</button>
                     <button className="btn-news btn-jp-news"onClick={()=> {
                         getJapNews();
+                        setNewsView("jap");
                     }}>Japanese News</button>
                 </span>
             </div>
-
-            {intNews.map(elem=> (
-                <div className="news-card">
-                    <article>
-                    <h3>{elem.title}</h3>
-                    <img src={elem.media} alt="mediaImage" width="250px" height="150"></img>
-                    <p> {elem.summary} </p>
-
-                    </article>
-                    <button className="card-news-btn"><a href={elem.link}>Read more</a></button>
-                </div>
-            ))}
-            {japNews.map(elem=> (
-                <div className="news-card">
-                    <article>
-                    <h3>{elem.title}</h3>
-                    <img src={elem.media} alt="mediaImage" width="250px" height="150"></img>
-                    <p> {elem.summary} </p>
-
-                    </article>
-                    <button className="card-news-btn"><a href={elem.link}>Read more</a></button>
-                </div>
-            ))}
-
+                    {newsView==="glob"?
+                    <IntNews intNews={intNews}/>
+                    :
+                    <JapNews japNews={japNews}/>
+                    }
         </div>
     )
 }
