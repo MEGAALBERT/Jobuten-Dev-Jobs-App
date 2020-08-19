@@ -13,8 +13,7 @@ const db = require("../knex");
                 const token = user.token
                 //create seed table user
                 const usersTable = await db("users").insert({
-                    first_name,
-                    last_name,
+                  
                     email,
                     username,
                     password

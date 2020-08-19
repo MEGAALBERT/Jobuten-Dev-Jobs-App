@@ -3,14 +3,14 @@ exports.up = function (knex) {
   //create table users
   return knex.schema.createTable("users", (table) => {
     //table.uuid('id').defaultTo(knex.raw('uuid_generate_v4()')).unique().primary()
-    table.increments("id").unique().notNullable().primary();
+    table.increments("id").unsigned().primary();
     table.text('username').unique().notNullable()
     table.text('email').unique().notNullable()
     table.text('password').notNullable()
   })
     // create table auth/token
   .createTable('auth_token', (table) => {
-    table.increments('user_id').references('id').inTable('users').onDelete('CASCADE');
+    table.increments('id').unsigned().primary().references('id').inTable('users').onDelete('CASCADE');
     table.string('token').unique().notNullable()
   })
 };
