@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from "axios";
-import "../App.css"
+import "../NewsJobsStyle.css";
 
 function News() {
 
@@ -39,8 +39,14 @@ const getNews=()=>{
                 getNews();
             }}>get news</button>
             {news.map(elem=> (
-                <p>{elem.title}</p>
+                <p>
+                    <b>{elem.title}</b><br/>
+                    <img src={elem.media} alt="mediaImage" width="250px" height="150"></img>
+                    <span> {elem.summary} </span><br/>
+                    <b><a href={elem.link}>Link To Source</a></b><br/>
+                </p>
             ))}
+            <br />
         </div>
     )
 }

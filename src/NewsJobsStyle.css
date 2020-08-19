@@ -1,0 +1,20 @@
+p {
+    text-align: left;
+    background-color: white;
+    width: 80%;
+    border: 5px solid blue;
+    border-radius:10px;
+    padding: 10px;
+    margin: auto;
+    color: black;
+    font-family: "Times New Roman", Times, serif;
+  }
+
+  img {
+      vertical-align: middle;
+  }
+
+  span {
+      display: inline-block;
+      color: black;
+  }

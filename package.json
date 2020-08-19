@@ -21,6 +21,8 @@
     "redux": "^4.0.5"
   },
   "scripts": {
+    "start-server": "node server/index.js",
+    "server": "nodemon server/index.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -46,5 +48,6 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
-  }
+  },
+  "proxy": "http://localhost:9000/"
 }
