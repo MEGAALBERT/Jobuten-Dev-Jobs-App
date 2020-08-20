@@ -48,7 +48,9 @@ This project is licensed under the MIT License
 
 ### Newsdisplay
 
-
+![image](/jobs.PNG)
 
 ### Jobs Display
+
+![image](/news.PNG)
 
