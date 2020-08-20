@@ -27,7 +27,7 @@ export default function About() {
       <img src={eri} alt="Jane" className="about-img"/>
       <div className="container">
         <h2>Eri Shimada</h2>
-        <p className="title">FrontEnd Developer</p>
+        <p className="title">Fullstack Developer</p>
         <p>Student at Code Chrysalis CC13.</p>
         <p>https://github.com/Erismd</p>
         <p><button className="button">Contact</button></p>
@@ -42,7 +42,7 @@ export default function About() {
       <img src={alberto} alt="Jane" className="about-img"/>
       <div className="container">
         <h2>Alberto Medellin</h2>
-        <p className="title">FrontEnd Developer</p>
+        <p className="title">Fullstack Developer & Tech lead</p>
         <p>Student at Code Chrysalis CC13.</p>
         <p>https://github.com/MEGAALBERT</p>
         <p><button className="button">Contact</button></p>
@@ -73,7 +73,7 @@ export default function About() {
       <img src={phil} alt="John" className="about-img"/>
       <div className="container">
         <h2>Philippe Huynh</h2>
-        <p className="title">FrontEnd Designer</p>
+        <p className="title">FrontEnd Developer</p>
         <p>Student at Code Chrysalis CC13.</p>
         <p>https://github.com/pw-yuu</p>
         <p><button class="button">Contact</button></p>
