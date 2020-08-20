@@ -11,9 +11,15 @@ const Login = () => {
       username: username,
       password: password,
     };
-
     console.log("!!!!", user);
-    await axios.post("/login", user);
+    await axios.post("/login", user).then(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
     e.preventDefault();
   }
 
@@ -27,8 +33,8 @@ const Login = () => {
               Your username
             </label>
             <input
-              type="email"
-              id="defaultFormLoginEmailEx"
+              type="text"
+              id="defaultFormRegisterNameEx"
               className="form-control"
               onChange={(e) => setUsername(e.target.value)}
             />
@@ -43,7 +49,7 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
             <div className="text-center mt-4">
-              <MDBBtn color="indigo" type="submit" onClick={addUser}>
+              <MDBBtn color="indigo" onClick={addUser}>
                 Login
               </MDBBtn>
             </div>

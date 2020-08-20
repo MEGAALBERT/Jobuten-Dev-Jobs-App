@@ -33,21 +33,67 @@ router.get("/", (req, res) => {
 
 // This post request for add new user
 
-router.post("/", async (req, res) => {
-  try {
-    const salt = await bcrypt.genSalt();
-    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+// router.post("/", async (req, res) => {
+//   try {
+//     const salt = await bcrypt.genSalt();
+//     const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
-    const user = {
-      username: req.body.username,
-      email: req.body.email,
-      password: hashedPassword,
-    };
-    db.insert(user)
-      .into("users")
-      .returning("*")
-      .then(function () {
-        res.status(201).send();
+//     const user = {
+//       username: req.body.username,
+//       email: req.body.email,
+//       password: hashedPassword,
+//     };
+//     db.insert(user)
+//       .into("users")
+//       .returning("*")
+//       .then(function () {
+//         res.status(201).send();
+//       });
+//   } catch {
+//     res.status(500).send();
+//   }
+// });
+
+
+router.post("/", async (req, res) => {
+  const salt = await bcrypt.genSalt();
+  const hashedPassword = await bcrypt.hash(req.body.password, salt);
+  try {
+    db("users")
+      .where({
+        username: req.body.username
+      })
+      .first()
+      .then(function (user) {
+        if (user) {
+          res.status(409).send("Username already exist, can not create this user");
+        } else {
+          db("users")
+            .where({
+              email: req.body.email
+            })
+            .first()
+            .then(function (user) {
+              if (user) {
+                res.status(409).send("Email already exist, can not create this user");
+              } else {
+
+
+                const user = {
+                  username: req.body.username,
+                  email: req.body.email,
+                  password: hashedPassword,
+                };
+                db.insert(user)
+                  .into("users")
+                  .returning("*")
+                  .then(function () {
+                    res.status(201).send();
+                  });
+              }
+
+            });
+        }
       });
   } catch {
     res.status(500).send();
