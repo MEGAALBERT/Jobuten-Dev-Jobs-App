@@ -3,6 +3,7 @@ const path = require("path");
 const app = express();
 
 const users = require("./login");
+const auth = require("./auth")
 
 app.use(
     "/users",
@@ -11,6 +12,15 @@ app.use(
         extended: true,
     }),
     users
+);
+
+app.use(
+    "/login",
+    express.json(),
+    express.urlencoded({
+        extended: true,
+    }),
+    auth
 );
 
 

@@ -5,7 +5,9 @@ import Job from './Job';
 export default function SearchJobs() {
 
     return (
-        <div className="searchjobs-container">
+
+        <div className="search-container">
+
             <Job />
         </div>
     )
