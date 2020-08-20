@@ -107,7 +107,7 @@ const mockJapJobs = [
 ]
     return (
         <div>
-            <input type="text" className="search-bar" placeholder="Search News..." onChange={(e)=>{
+            <input type="text" className="search-bar" placeholder="Search Jobs..." onChange={(e)=>{
                     setJobParam(e.target.value);
                 }}/>
             <span className="btn-news-container">

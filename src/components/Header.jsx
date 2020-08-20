@@ -6,7 +6,7 @@ export default function Header(props) {
 
     return (
         <div className="App-header">
-            <h1 className="App-logo">Jobu<span>Ten</span></h1>
+            <h1 className="App-logo">Jobu<span className="primary-color">Ten</span></h1>
             <ul>
                 <li onClick={() => props.onClick(0)}>Home</li>
                 <li onClick={() => props.onClick(1)}>Search Jobs</li>
