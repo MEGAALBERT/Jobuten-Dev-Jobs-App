@@ -36,7 +36,7 @@ yarn hack
 
 - **Alberto Medellin** - [MEGAALBERT](https://github.com/MEGAALBERT)
 - **Phillipe Huynh** - [pw-yuu](https://github.com/pw-yuu)
-- **Mattia** - [matt185](https://github.com/matt185)
+- **Mattia Marcenta** - [matt185](https://github.com/matt185)
 - **Eri Shimada** - [Erismd](https://github.com/Erismd)
 - **Mukhtar Otarbayev** - [MukhtarKaz](https://github.com/MukhtarKaz)
 
