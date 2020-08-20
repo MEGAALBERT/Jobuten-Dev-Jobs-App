@@ -84,7 +84,7 @@ export default function About() {
     <div className="card">
       <img src={muk} alt="John"  className="about-img"/>
       <div className="container">
-        <h2>Mukthar Otarbayev</h2>
+        <h2>Mukhtar Otarbayev</h2>
         <p className="title">Backend Developer</p>
         <p>Student at Code Chrysalis CC13.</p>
         <a href="https://github.com/MukhtarKaz" target="_blank"><button className="about-btn"><img src={github} alt="github-logo"/></button></a>
