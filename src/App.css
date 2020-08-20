@@ -144,6 +144,13 @@ img {
   height: auto;
 }
 
+.about-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 .news-card article {
   display: flex;
   justify-content: center;
