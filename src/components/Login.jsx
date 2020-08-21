@@ -3,7 +3,7 @@ import { MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 
-const Login = () => {
+const Login = ({setNumState}) => {
   const dispatch = useDispatch();
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
@@ -68,7 +68,10 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
             <div className="text-center mt-4">
-              <MDBBtn color="indigo" onClick={login}>
+              <MDBBtn color="indigo" onClick={()=> {
+                login();
+                setNumState(0);
+                }}>
                 Login
               </MDBBtn>
             </div>
