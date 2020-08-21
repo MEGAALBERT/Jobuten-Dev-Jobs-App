@@ -6,11 +6,15 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import * as serviceWorker from './serviceWorker';
+import store from "./redux"
+import { Provider} from "react-redux";
 
 ReactDOM.render(
+  <Provider store={store}>
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
+  </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 
