@@ -46,25 +46,21 @@ const Login = ({setNumState}) => {
       <MDBRow>
         <MDBCol md="6">
           <form>
-            <p className="h4 text-center mb-4">Sign in</p>
-            <label htmlFor="defaultFormLoginEmailEx" className="grey-text">
-              Your username
-            </label>
+            <p className="text-center">Sign in</p>
             <input
               type="text"
               id="defaultFormRegisterNameEx"
               className="form-control"
+              placeholder="username"
               onChange = {(e)=>{setUsername(e.target.value)}}
               //onChange={(e) => setUsername(e.target.value)}
             />  
             <br />
-            <label htmlFor="defaultFormLoginPasswordEx" className="grey-text">
-              Your password
-            </label>
             <input
               type="password"
               id="defaultFormLoginPasswordEx"
               className="form-control"
+              placeholder="password"
               onChange={(e) => setPassword(e.target.value)}
             />
             <div className="text-center mt-4">
