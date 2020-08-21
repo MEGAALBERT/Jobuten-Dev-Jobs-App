@@ -42,40 +42,40 @@ const Login = () => {
 
 
   return (
-    <MDBContainer>
-      <MDBRow>
-        <MDBCol md="6">
-          <form>
-            <p className="h4 text-center mb-4">Sign in</p>
-            <label htmlFor="defaultFormLoginEmailEx" className="grey-text">
-              Your username
-            </label>
-            <input
-              type="text"
-              id="defaultFormRegisterNameEx"
-              className="form-control"
-              onChange = {(e)=>{setUsername(e.target.value)}}
-              //onChange={(e) => setUsername(e.target.value)}
-            />  
-            <br />
-            <label htmlFor="defaultFormLoginPasswordEx" className="grey-text">
-              Your password
-            </label>
-            <input
-              type="password"
-              id="defaultFormLoginPasswordEx"
-              className="form-control"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <div className="text-center mt-4">
-              <MDBBtn color="indigo" onClick={login}>
-                Login
-              </MDBBtn>
-            </div>
-          </form>
-        </MDBCol>
-      </MDBRow>
-    </MDBContainer>
+
+          <div>
+
+            <form>
+              <p className="h4 text-center mb-4">Sign in</p>
+              <label htmlFor="defaultFormLoginEmailEx" className="grey-text">
+                Your username
+              </label>
+              <input
+                type="text"
+                id="defaultFormRegisterNameEx"
+                className="form-control"
+                onChange = {(e)=>{setUsername(e.target.value)}}
+                //onChange={(e) => setUsername(e.target.value)}
+              />  
+              <br />
+              <label htmlFor="defaultFormLoginPasswordEx" className="grey-text">
+                Your password
+              </label>
+              <input
+                type="password"
+                id="defaultFormLoginPasswordEx"
+                className="form-control"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <div className="text-center mt-4">
+                <MDBBtn color="indigo" onClick={login}>
+                  Login
+                </MDBBtn>
+              </div>
+            </form>
+            
+          </div>
+
   );
 };
 
