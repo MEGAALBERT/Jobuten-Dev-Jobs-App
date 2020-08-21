@@ -12,7 +12,7 @@ function JapNews({japNews}) {
                         <div className="text-container">
                             <h3>{elem.title}</h3>
                             <p> {elem.summary} </p>
-                            <button className="card-news-btn"><a href={elem.link} target="_blank">View Article</a></button>
+                            <a href={elem.link} target="_blank"><button className="card-news-btn">View Article</button></a>
                         </div>
                     </article>
                 </div>
