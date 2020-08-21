@@ -10,12 +10,13 @@
   }
 
   .our-team {
+    color: #474e5d;
     padding-bottom: 50px;
   }
   
   .column {
     float: left;
-    width: 16%;
+    width: 320px;
     margin-bottom: 16px;
     padding: 0 8px;
   }
@@ -23,6 +24,8 @@
   .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     margin: 8px;
+    border-radius: 10px;
+    background: white;
   }
   
   .about-section {
@@ -38,7 +41,9 @@
   }
 
   span.about-prim {
-    color: #ff4b2b;
+    background: -webkit-linear-gradient(#e0135c, #ff4b2b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   
   .container {
@@ -46,14 +51,16 @@
   }
   
   .row {
-    width: 100%;
+    max-width: 100%;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     margin: 15px;
   }
   
   .title {
     color: grey;
+    margin-bottom: 20px;
   }
   
   .about-btn {
@@ -69,11 +76,13 @@
     cursor: pointer;
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
     outline: none;
   }
   
   .about-btn:hover {
-    background-color: #555;
+    background-color: #474e5d;
     border: none;
   }
   
@@ -96,4 +105,12 @@
 a img {
   width: 30px;
   
+}
+
+.cc-student {
+  margin-bottom: 20px;
+}
+
+.about-btn:active {
+  background: linear-gradient(90deg, rgba(224,19,92,1) 0%, rgba(255,75,43,1) 100%);
 }

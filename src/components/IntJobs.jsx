@@ -22,7 +22,7 @@ function IntJobs({intJobs}) {
                                     <p> <img src={pin} alt="pin" className="pin-img"/>{job.formattedLocationFull}</p>
                                     <p className="date">Posted on {job.date}</p>
                                 </div>
-                                <button className="job-btn"><a href={job.url}>View Job</a></button>
+                                <a href={job.url} target="_blank"><button className="job-btn">View Job</button></a>
                             </div>
                         </div>
                     </div>

@@ -71,7 +71,7 @@ async function getIntJobs(){
                     setJobParam(e.target.value);
                 }}/>
             <span className="btn-news-container">
-            <button className="btn-news" onClick={()=> {
+            <button className="btn-news btn-int-news" onClick={()=> {
                 getIntJobs();
                 setView("int");
             }}>International Jobs</button>
