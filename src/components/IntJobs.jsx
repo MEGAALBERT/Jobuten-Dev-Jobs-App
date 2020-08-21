@@ -14,7 +14,7 @@ function IntJobs({intJobs}) {
                     <div className="job-text-container">
                         <div className="job-content">
                             <div className="job-content1">
-                                <h3>{job.jobtitle}  @<span className="primary-color">{job.company}</span></h3>
+                                <h3>{job.jobtitle} <p>@<span className="primary-color">{job.company}</span></p></h3>
                                 <p>{job.snippet}</p>
                             </div>
                             <div className="job-content2">

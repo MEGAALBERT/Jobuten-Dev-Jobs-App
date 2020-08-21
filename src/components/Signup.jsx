@@ -9,8 +9,8 @@ const Signup = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   //!　my change
-  const [checkEmail, setCheckEmail]= useState()
-  
+  const [checkEmail, setCheckEmail] = useState();
+  const [emailErr, setEmailErr] = useState(false);
 
   async function addUser(e) {
     console.log(email,checkEmail)
@@ -21,15 +21,19 @@ const Signup = () => {
     };
     //! my change
     if (email !== checkEmail) {
-      console.log("wrong email")
+      setEmailErr(true)
+      
       return
-    }
+    } else {
       //!-----------
-
       console.log("!!!!", user);
       await axios.post("/users", user);
-      e.preventDefault();
+      setEmailErr(false)
+    }
+    e.preventDefault();
   }
+ 
+
 
   return (
     <MDBContainer>
@@ -57,7 +61,8 @@ const Signup = () => {
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
-            />
+            /> 
+           
             <br />
             <label htmlFor="defaultFormRegisterConfirmEx" className="grey-text">
               Confirm your email
@@ -71,7 +76,10 @@ const Signup = () => {
                 setCheckEmail(e.target.value);
               }}
             />
-            <br />
+            <div>
+              {emailErr ?(<p class="errorMessage">Check your mail</p>):(<br></br>)}
+            </div>
+            
             <label
               htmlFor="defaultFormRegisterPasswordEx"
               className="grey-text"
