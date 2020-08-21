@@ -11,9 +11,10 @@ const Signup = () => {
   //!　my change
   const [checkEmail, setCheckEmail] = useState();
   const [emailErr, setEmailErr] = useState(false);
-
+  const [signUp, setSignUp]= useState(false)
+  const [userErr, setUserError]=useState(false)
   async function addUser(e) {
-    console.log(email,checkEmail)
+    
     const user = {
       username: username,
       email: email,
@@ -22,13 +23,14 @@ const Signup = () => {
     //! my change
     if (email !== checkEmail) {
       setEmailErr(true)
-      
       return
     } else {
       //!-----------
-      console.log("!!!!", user);
-      await axios.post("/users", user);
+      // console.log("!!!!", user);
+      await axios.post("/users", user).then((res) => {
+      })
       setEmailErr(false)
+      setSignUp(true)
     }
     e.preventDefault();
   }
@@ -50,7 +52,9 @@ const Signup = () => {
               className="form-control"
               onChange={(e) => setUsername(e.target.value)}
             />
-            <br />
+            <div>
+              {userErr ?(<p className="">Check your mail</p>):(<br></br>)}
+            </div>
             <label htmlFor="defaultFormRegisterEmailEx" className="grey-text">
               Your email
             </label>
@@ -77,7 +81,7 @@ const Signup = () => {
               }}
             />
             <div>
-              {emailErr ?(<p class="errorMessage">Check your mail</p>):(<br></br>)}
+              {emailErr ?(<p className="">Check your mail</p>):(<br></br>)}
             </div>
             
             <label
@@ -103,6 +107,9 @@ const Signup = () => {
               >
                 Register
               </MDBBtn>
+              <div>
+                {signUp? <p>You successfully Sign Up!</p>:<p></p>}
+              </div>
             </div>
           </form>
         </MDBCol>

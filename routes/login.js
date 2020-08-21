@@ -66,7 +66,7 @@ router.post("/", async (req, res) => {
       .first()
       .then(function (user) {
         if (user) {
-          res.status(409).send("Username already exist, can not create this user");
+          res.status(422).send("Username already exist, can not create this user");
         } else {
           db("users")
             .where({
