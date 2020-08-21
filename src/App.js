@@ -46,7 +46,7 @@ function App() {
       return (
         <>
           <Header onClick={(e) => setNumState(e)} />
-          <Login />
+          <Login setNumState={setNumState}/>
         </>
       );
     } else if (numState === 5) {

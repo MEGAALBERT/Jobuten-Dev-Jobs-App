@@ -3,7 +3,7 @@ import { MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 
-const Login = () => {
+const Login = ({setNumState}) => {
   const dispatch = useDispatch();
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
@@ -46,29 +46,28 @@ const Login = () => {
       <MDBRow>
         <MDBCol md="6">
           <form>
-            <p className="h4 text-center mb-4">Sign in</p>
-            <label htmlFor="defaultFormLoginEmailEx" className="grey-text">
-              Your username
-            </label>
+            <p className="text-center">Sign in</p>
             <input
               type="text"
               id="defaultFormRegisterNameEx"
               className="form-control"
+              placeholder="username"
               onChange = {(e)=>{setUsername(e.target.value)}}
               //onChange={(e) => setUsername(e.target.value)}
             />  
             <br />
-            <label htmlFor="defaultFormLoginPasswordEx" className="grey-text">
-              Your password
-            </label>
             <input
               type="password"
               id="defaultFormLoginPasswordEx"
               className="form-control"
+              placeholder="password"
               onChange={(e) => setPassword(e.target.value)}
             />
             <div className="text-center mt-4">
-              <MDBBtn color="indigo" onClick={login}>
+              <MDBBtn color="indigo" onClick={()=> {
+                login();
+                setNumState(0);
+                }}>
                 Login
               </MDBBtn>
             </div>
