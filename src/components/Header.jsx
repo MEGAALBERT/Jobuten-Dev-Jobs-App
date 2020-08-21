@@ -14,7 +14,7 @@ const loginName =  useSelector(state => state.loginName)
                 <li onClick={() => props.onClick(2)}>About</li>
             </ul>
             <div>
-                {loginName !== "" ? <p>Welcome back, {loginName}</p> : 
+                {loginName !== "" ? <p>Welcome back, {loginName}!</p> : 
                 <>
                 <button className="signin-btn" onClick={()=>props.onClick(4)}>Sign In</button>
                 <button className="signup-btn" onClick={()=>props.onClick(5)}>Sign Up</button></>}
